@@ -47,6 +47,10 @@ module.exports = {
             loader: 'sass-loader'
           }
         ]
+      },
+      {
+        test: /\.svg?$/,
+        loader: 'vue-svg-loader',
       }
     ]
   }

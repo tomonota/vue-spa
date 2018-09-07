@@ -1,28 +1,27 @@
 <template>
-  <nav class="col-sm-3 col-md-2 col-lg-2 col-xl-2 sidebar">
-    <ul class="nav flex-column">
-      <li class="nav-item" v-bind:class="{ active: isActive }">
-        <a class="nav-link" href="#">Campaign <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <!-- change router-link -->
-        <a class="nav-link" href="#">Reports</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Analytics</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Export</a>
-      </li>
+  <nav class="sidebar">
+    <a class="brand" href="#">
+      <logo class="w-75"/>
+    </a>
+    <ul class="nav">
+      <router-link to="/campaign" tag="li" class="nav-item">
+        <a class="nav-link">Campaign</a>
+      </router-link>
+      <router-link to="/report" tag="li" class="nav-item">
+        <a class="nav-link">Report</a>
+      </router-link>
+      <router-link to="/export" tag="li" class="nav-item">
+        <a class="nav-link">Export</a>
+      </router-link>
     </ul>
   </nav>
 </template>
 
 <script>
+import Logo from '@/images/logo.svg'
 export default {
-  data() {
-    return {
-    }
+  components: {
+    'logo': Logo
   }
 }
 </script>
@@ -31,29 +30,44 @@ export default {
 
 // Sidebar
 .sidebar {
-  background: rgb(7, 8, 77);
-  // linear-gradient(to bottom,rgba(6, 8, 134, 0.788), rgb(2, 2, 58));
-  position: fixed;
-  top: 4rem;
-  bottom: 0;
-  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #171e3b;
   z-index: 1000;
   padding: 20px 0;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-  border-right: 1px solid #eee;
+
+  .brand {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
 
   // Sidebar navigation
   .nav-item {
     width: 100%;
-    margin-bottom: 4px;
+    height: 60px;
     padding: 0 20px;
   }
+
   .nav-link {
-    font-size: large;
-    font-weight: 400;
-    color: rgb(12, 82, 161);
-    border-radius: 0;
+      height: 60px;
+      font-size: 1rem;
+      font-weight: 300;
+      color: #4c687a;
+      border-radius: 0;
+      display: table-cell;
+      vertical-align: middle;
+  }
+
+  .router-link-active {
+    background: linear-gradient(to right, #458a96 0%, #171e3b 100%);
+
+    a {
+      color: #ffffff;
+    }
   }
 
   .active {

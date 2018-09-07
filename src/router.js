@@ -1,25 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Home from '@/views/Home.vue'
+import Campaign from '@/views/Campaign.vue'
+import Report from '@/views/Report.vue'
+import Export from '@/views/export.vue'
+
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      component: Home,
+      path: '/campaign',
+      component: Campaign,
     },
-    // {
-    //   name: 'register',
-    //   path: '/register',
-    //   component: () => import('@/views/Register')
-    // },
-    // {
-    //   name: 'settings',
-    //   path: '/settings',
-    //   component: () => import('@/views/Settings')
-    // },
+    {
+      path: '/report',
+      component: Report,
+    },
+    {
+      path: '/export',
+      component: Export,
+    }
   ]
 })
